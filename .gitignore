@@ -1,0 +1,23 @@
+# Eclipse
+.metadata/
+.recommenders/
+.settings/
+*.launch
+
+# Build output
+build/
+target/
+
+# Java compiled files
+*.class
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
