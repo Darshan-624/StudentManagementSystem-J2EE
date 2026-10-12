@@ -310,6 +310,25 @@ tbody tr:hover {
 	}
 }
 
+.search-box {
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d8d1c5;
+    border-radius: 10px;
+    background: #fffdf8;
+    color: #26332f;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #173f35;
+    box-shadow: 0 0 0 3px rgba(23, 63, 53, .10);
+}
 
 </style>
 </head>
@@ -352,6 +371,12 @@ tbody tr:hover {
 
 		<div class="student-card">
 			<h2>All Student Details</h2>
+			
+			<div class="search-box">
+    <input type="search"
+           id="studentSearch"
+           placeholder="Search by SID, name, phone, email, branch or location...">
+</div>
 
 			<table>
 				<thead>
@@ -403,3 +428,19 @@ for(Student s:students){
 
 </body>
 </html>
+
+
+<script>
+const searchInput = document.getElementById("studentSearch");
+
+searchInput.addEventListener("input", function () {
+    const searchValue = this.value.toLowerCase().trim();
+    const rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(function (row) {
+        const rowText = row.textContent.toLowerCase();
+        row.style.display =
+            rowText.includes(searchValue) ? "" : "none";
+    });
+});
+</script>
